@@ -1,7 +1,7 @@
 ﻿#!/bin/bash
 
 wet="https://github.com/wet-boew/wet-boew.git tags/"
-wet_v="4.0.5"
+wet_v="v4.0.5"
 
 # enable error reporting to the console, just in case
 set -e
