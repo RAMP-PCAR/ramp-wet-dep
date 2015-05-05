@@ -23,12 +23,10 @@ wet_base="https://github.com/wet-boew/"
 repos="wet-boew"
 
 ramp_dep="https://${GH_TOKEN}@github.com/RAMP-PCAR/ramp-wet-dep"
+ramp_folder="ramp_dep"
+ramp_branch="dep"
 
-git branch -a
-git branch -r
-
-# checkout proper branch
-git checkout origin/dep
+git clone -b $ramp_branch $ramp_dep $ramp_folder
 
 for r in $repos; do    
     # clone wet repo
@@ -49,15 +47,17 @@ for r in $repos; do
     
     # making folder to store archive in
     cd ..
-    mkdir $r
+    mkdir $ramp_folder/$r
     
     # zipping 
-    zip -r $r/$r-$wet_v.zip source
+    zip -r $ramp_folder/$r/$r-$wet_v.zip source
     ls
     
     # remove original wet repo 
     rm -rf source
 done
+
+cd $ramp_folder
 
 # add new files
 git add -A .
