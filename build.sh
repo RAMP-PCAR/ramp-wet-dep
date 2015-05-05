@@ -25,7 +25,7 @@ repos="wet-boew"
 ramp_dep="https://${GH_TOKEN}@github.com/RAMP-PCAR/ramp-wet-dep"
 
 # checkout proper branch
-git checkout dep
+git checkout origin/dep
 
 for r in $repos; do    
     # clone wet repo
