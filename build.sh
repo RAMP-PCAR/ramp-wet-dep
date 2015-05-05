@@ -29,10 +29,10 @@ git checkout dep
 
 for r in $repos; do    
     # clone wet repo
-    git clone $wet_base$r $r_source
+    git clone $wet_base$r source
     
     # build wet
-	cd $r_source
+	cd source
     git checkout $wet_v
         #npm install
         #grunt
@@ -49,11 +49,11 @@ for r in $repos; do
     mkdir $r
     
     # zipping 
-    zip -r $r/$r-$wet_v.zip $r_source
+    zip -r $r/$r-$wet_v.zip source
     ls
     
     # remove original wet repo 
-    rm -rf $r_source
+    rm -rf source
 done
 
 # add new files
