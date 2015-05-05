@@ -61,7 +61,7 @@ cd $ramp_folder
 
 # add new files
 git add -A .
-git commit -a -m "$commitMessage"
+git commit -a -m "chore(release): WET dependencies $wet_v"
 
 # push them into the repo
 git push $ramp_dep
