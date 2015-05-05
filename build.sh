@@ -42,13 +42,13 @@ for r in $repos; do
     
     # zipping 
     cd ..
-    zip $r$wet_v $r/*
+    zip -r $r$wet_v.zip $r
     ls
         
     rm -rf $r
     ls
     
-    git add -a .
+    git add -A .
     git commit -a -m "chore(grunt): ?"
     
     #git push --quiet > /dev/null 2>&1
