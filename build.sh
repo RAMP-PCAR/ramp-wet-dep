@@ -1,9 +1,7 @@
 ﻿#!/bin/bash
 
-#apt-get install zip
-
 # enable error reporting to the console, just in case
-#set -e
+set -e
 
 # only proceed script when started not by pull request (PR)
 if [ $TRAVIS_PULL_REQUEST == "true" ]; then
@@ -30,10 +28,10 @@ git clone -b $ramp_branch $ramp_dep $ramp_folder
 
 for r in $repos; do    
     # clone wet repo
-    git clone $wet_base$r source
+    git clone $wet_base$r $r
     
     # build wet
-	cd source
+	cd $r
     git checkout $wet_v
         #npm install
         #grunt
@@ -50,28 +48,19 @@ for r in $repos; do
     mkdir $ramp_folder/$r
     
     # zipping 
-    zip -r $ramp_folder/$r/$r-$wet_v.zip source
+    zip -r $ramp_folder/$r/$r-$wet_v.zip $r
     ls
     
     # remove original wet repo 
-    rm -rf source
+    rm -rf $r
 done
 
 cd $ramp_folder
 
 # add new files
 git add -A .
-git commit -a -m "chore(grunt): ?"
+git commit -a -m "$commitMessage"
 
 # push them into the repo
-git push $ramp_dep
-#git push --quiet $targetRepo $targetBranch > /dev/null 2>&1
-
-# got back up a level
-#cd ..
-
-# clone our dep repo
-#git clone -b wet-boew $dep_repo ramp-wet-dep
-
-# cope 
-#cp -R wet-boew/* ramp-wet-dep/wet
+git push --quiet $ramp_dep > /dev/null 2>&1
+git push --quiet $ramp_dep > /dev/null 2>&1
