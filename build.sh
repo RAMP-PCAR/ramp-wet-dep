@@ -22,7 +22,7 @@ wet_base="https://github.com/wet-boew/"
 #repos="wet-boew theme-gcwu-fegc theme-gc-intranet GCWeb"
 repos="wet-boew"
 
-ramp_dep="https://github.com/RAMP-PCAR/ramp-wet-dep.git"
+ramp_dep="https://github.com/RAMP-PCAR/ramp-wet-dep"
 
 for r in $repos; do    
     # clone wet repo
@@ -48,11 +48,13 @@ for r in $repos; do
     rm -rf $r
     ls
     
+    git checkout wet-boew
+    
     git add -A .
     git commit -a -m "chore(grunt): ?"
     
-    #git push --quiet > /dev/null 2>&1
     git push $ramp_dep
+    #git push --quiet $targetRepo $targetBranch > /dev/null 2>&1 
 done
 
 
