@@ -1,7 +1,6 @@
 ﻿#!/bin/bash
 
-wet="https://github.com/wet-boew/wet-boew.git"
-wet_v="v4.0.5"
+apt-get install zip
 
 # enable error reporting to the console, just in case
 set -e
@@ -18,12 +17,38 @@ if [ ! -z $TRAVIS_TAG ]; then
     exit 0
 fi
 
-git clone $wet
+wet_v="v4.0.5"
+wet_base="https://github.com/wet-boew/"
+#repos="wet-boew theme-gcwu-fegc theme-gc-intranet GCWeb"
+repos="wet-boew"
 
-cd wet-boew
+for r in $repos; do    
+    # clone wet repo
+    git clone $wet_base$r
+    
+    # build wet
+	cd $r
+    git checkout $wet_v
+    npm install
+    grunt
+    
+    # remove garbage
+    rm -rf node_modules
+    rm -rf lib
+    rm bower.json
+    rm package.json
+    
+    # zipping 
+    cd ..
+    zip $r
+done
 
-git checkout $wet_v 
 
-npm install
+# got back up a level
+#cd ..
 
-grunt
+# clone our dep repo
+#git clone -b wet-boew $dep_repo ramp-wet-dep
+
+# cope 
+#cp -R wet-boew/* ramp-wet-dep/wet
