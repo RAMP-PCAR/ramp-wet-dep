@@ -3,7 +3,7 @@
 #apt-get install zip
 
 # enable error reporting to the console, just in case
-set -e
+#set -e
 
 # only proceed script when started not by pull request (PR)
 if [ $TRAVIS_PULL_REQUEST == "true" ]; then
@@ -28,7 +28,7 @@ for r in $repos; do
     
     # build wet
 	cd $r
-    git -b checkout $wet_v
+    git checkout $wet_v
         #npm install
         #grunt
     
