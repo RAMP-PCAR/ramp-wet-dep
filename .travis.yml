@@ -18,6 +18,3 @@ before_install:
 
 script:
   - ./build.sh
-
-after_success:
-  - grunt release
