@@ -25,14 +25,14 @@ repos="wet-boew"
 ramp_dep="https://${GH_TOKEN}@github.com/RAMP-PCAR/ramp-wet-dep"
 
 # checkout proper branch
-git checkout wet-boew
+git checkout dep
 
 for r in $repos; do    
     # clone wet repo
-    git clone $wet_base$r
+    git clone $wet_base$r $r_source
     
     # build wet
-	cd $r
+	cd $r_source
     git checkout $wet_v
         #npm install
         #grunt
@@ -44,18 +44,16 @@ for r in $repos; do
     rm bower.json
     rm package.json
     
-    # making folder
+    # making folder to store archive in
+    cd ..
     mkdir $r
     
     # zipping 
-    cd ..
-    zip -r $r/$r-$wet_v.zip $r
+    zip -r $r/$r-$wet_v.zip $r_source
     ls
     
     # remove original wet repo 
-    rm -rf $r
-    ls
-     
+    rm -rf $r_source
 done
 
 # add new files
