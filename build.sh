@@ -22,6 +22,8 @@ wet_base="https://github.com/wet-boew/"
 #repos="wet-boew theme-gcwu-fegc theme-gc-intranet GCWeb"
 repos="wet-boew"
 
+ramp_dep="ramp-wet-dep"
+
 for r in $repos; do    
     # clone wet repo
     git clone $wet_base$r
@@ -40,7 +42,18 @@ for r in $repos; do
     
     # zipping 
     cd ..
-    zip $r$wet_v $r/*
+    zip ramp_dep/$r$wet_v $r/*
+    
+    ls
+    
+    cd ramp_dep
+    ls
+    
+    git add -a .
+    git commit -a -m "chore(grunt): ?"
+    
+    #git push --quiet > /dev/null 2>&1
+    git push 
 done
 
 
