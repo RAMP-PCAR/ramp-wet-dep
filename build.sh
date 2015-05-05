@@ -42,7 +42,7 @@ for r in $repos; do
     
     # zipping 
     cd ..
-    zip ../$r$wet_v $r/*
+    zip $r$wet_v $r/*
     ls
         
     rm -rf $r
