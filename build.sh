@@ -17,8 +17,8 @@ fi
 
 wet_v="v4.0.5"
 wet_base="https://github.com/wet-boew/"
-#repos="wet-boew theme-gcwu-fegc theme-gc-intranet GCWeb"
-repos="wet-boew"
+repos="wet-boew theme-gcwu-fegc theme-gc-intranet GCWeb"
+#repos="wet-boew"
 
 ramp_dep="https://${GH_TOKEN}@github.com/RAMP-PCAR/ramp-wet-dep"
 ramp_folder="ramp_dep"
