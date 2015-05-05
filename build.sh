@@ -17,9 +17,9 @@ if [ ! -z $TRAVIS_TAG ]; then
     exit 0
 fi
 
-git clone $wetCore
+bower install $wetCore
 
-cd web-boew
+cd lib/web-boew
 
 npm install
 
