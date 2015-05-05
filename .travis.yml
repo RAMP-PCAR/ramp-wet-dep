@@ -5,6 +5,10 @@ node_js:
 
 branches:
   only:
+    - wet-boew
+    - theme-gcwu-fegc
+    - theme-gc-intranet
+    - GCWeb
     - develop
     - master
     - /^test/.*$/
