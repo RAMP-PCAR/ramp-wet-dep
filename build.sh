@@ -45,7 +45,9 @@ for r in $repos; do
     
     # making folder to store archive in
     cd ..
-    mkdir $ramp_folder/$r
+    mkdir -p $ramp_folder/$r
+    # remove previous file with the same version number if exists
+    rm -f $ramp_folder/$r/$r-$wet_v.zip
     
     # zipping 
     zip -r $ramp_folder/$r/$r-$wet_v.zip $r
