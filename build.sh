@@ -64,5 +64,5 @@ git add -A .
 git commit -a -m "chore(release): WET dependencies $wet_v"
 
 # push them into the repo
-git push $ramp_dep
-#git push --quiet $ramp_dep > /dev/null 2>&1
+#git push $ramp_dep
+git push --quiet $ramp_dep > /dev/null 2>&1
