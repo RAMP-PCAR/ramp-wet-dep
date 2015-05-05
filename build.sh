@@ -42,11 +42,10 @@ for r in $repos; do
     
     # zipping 
     cd ..
-    zip $ramp_dep/$r$wet_v $r/*
-    
+    zip ../$r$wet_v $r/*
     ls
-    
-    cd $ramp_dep
+        
+    rm -rf $r
     ls
     
     git add -a .
