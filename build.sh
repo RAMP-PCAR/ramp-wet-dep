@@ -1,6 +1,6 @@
 ﻿#!/bin/bash
 
-apt-get install zip
+#apt-get install zip
 
 # enable error reporting to the console, just in case
 set -e
@@ -28,9 +28,9 @@ for r in $repos; do
     
     # build wet
 	cd $r
-    git checkout $wet_v
-    npm install
-    grunt
+    git -b checkout $wet_v
+        #npm install
+        #grunt
     
     # remove garbage
     rm -rf node_modules
@@ -40,7 +40,7 @@ for r in $repos; do
     
     # zipping 
     cd ..
-    zip $r
+    zip $r$wet_v $r/*
 done
 
 
