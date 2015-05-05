@@ -33,8 +33,8 @@ for r in $repos; do
     # build wet
 	cd $r
     git checkout $wet_v
-        #npm install
-        #grunt
+    npm install
+    grunt
     
     # remove garbage
     rm -rf node_modules
