@@ -18,9 +18,11 @@ if [ ! -z $TRAVIS_TAG ]; then
     exit 0
 fi
 
-git clone $wet$wet_v
+git clone $wet
 
-cd tags/$wet_v
+cd wet-boew
+
+git checkout $wet_v 
 
 npm install
 
