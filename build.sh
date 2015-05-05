@@ -24,6 +24,9 @@ repos="wet-boew"
 
 ramp_dep="https://${GH_TOKEN}@github.com/RAMP-PCAR/ramp-wet-dep"
 
+git branch -a
+git branch -r
+
 # checkout proper branch
 git checkout origin/dep
 
