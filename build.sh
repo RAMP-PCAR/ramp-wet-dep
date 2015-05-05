@@ -24,6 +24,9 @@ repos="wet-boew"
 
 ramp_dep="https://${GH_TOKEN}@github.com/RAMP-PCAR/ramp-wet-dep"
 
+# checkout proper branch
+git checkout wet-boew
+
 for r in $repos; do    
     # clone wet repo
     git clone $wet_base$r
@@ -37,26 +40,28 @@ for r in $repos; do
     # remove garbage
     rm -rf node_modules
     rm -rf lib
+    rm -rf .git
     rm bower.json
     rm package.json
     
     # zipping 
     cd ..
-    zip -r $r$wet_v.zip $r
+    zip -r $r-$wet_v.zip $r
     ls
-        
+    
+    # remove original wet repo 
     rm -rf $r
     ls
-    
-    git checkout wet-boew
-    
-    git add -A .
-    git commit -a -m "chore(grunt): ?"
-    
-    git push $ramp_dep
-    #git push --quiet $targetRepo $targetBranch > /dev/null 2>&1 
+     
 done
 
+# add new files
+git add -A .
+git commit -a -m "chore(grunt): ?"
+
+# push them into the repo
+git push $ramp_dep
+#git push --quiet $targetRepo $targetBranch > /dev/null 2>&1
 
 # got back up a level
 #cd ..
