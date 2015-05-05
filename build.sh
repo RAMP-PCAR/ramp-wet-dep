@@ -17,7 +17,7 @@ if [ ! -z $TRAVIS_TAG ]; then
     exit 0
 fi
 
-git clone -b $wetCore
+git clone $wetCore
 
 cd web-boew
 
