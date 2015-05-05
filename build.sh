@@ -1,6 +1,7 @@
 ﻿#!/bin/bash
 
-wetCore="https://github.com/wet-boew/wet-boew.git#4.0.5"
+wet="https://github.com/wet-boew/wet-boew.git tags/"
+wet_v="4.0.5"
 
 # enable error reporting to the console, just in case
 set -e
@@ -17,9 +18,9 @@ if [ ! -z $TRAVIS_TAG ]; then
     exit 0
 fi
 
-bower install $wetCore
+git clone $wet$wet_v
 
-cd lib/web-boew
+cd tags/$wet_v
 
 npm install
 
