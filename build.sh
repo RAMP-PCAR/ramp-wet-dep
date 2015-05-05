@@ -44,9 +44,12 @@ for r in $repos; do
     rm bower.json
     rm package.json
     
+    # making folder
+    mkdir $r
+    
     # zipping 
     cd ..
-    zip -r $r-$wet_v.zip $r
+    zip -r $r/$r-$wet_v.zip $r
     ls
     
     # remove original wet repo 
