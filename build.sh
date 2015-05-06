@@ -34,7 +34,13 @@ for r in $repos; do
 	cd $r
     git checkout $wet_v
     npm install
-    grunt
+    
+    if [ $r == "wet-boew" ]; then
+        grunt
+    else
+        grunt build
+        grunt assets-dist
+    fi
     
     # remove garbage
     rm -rf node_modules
@@ -45,12 +51,13 @@ for r in $repos; do
     
     # making folder to store archive in
     cd ..
-    mkdir -p $ramp_folder/$r
+    #mkdir -p $ramp_folder/$r
+    mkdir -p $ramp_folder/$wet_v
     # remove previous file with the same version number if exists
-    rm -f $ramp_folder/$r/$r-$wet_v.zip
+    rm -f $ramp_folder/$wet_v/$r.zip
     
     # zipping 
-    zip -r $ramp_folder/$r/$r-$wet_v.zip $r
+    zip -r $ramp_folder/$wet/$r.zip $r
     ls
     
     # remove original wet repo 
