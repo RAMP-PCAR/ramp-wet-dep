@@ -15,7 +15,7 @@ if [ ! -z $TRAVIS_TAG ]; then
     exit 0
 fi
 
-wet_v="v4.0.10"
+wet_v="v4.0.5"
 wet_base="https://github.com/wet-boew/"
 repos="wet-boew theme-gcwu-fegc theme-gc-intranet GCWeb"
 #repos="wet-boew"
@@ -39,6 +39,7 @@ for r in $repos; do
         grunt init
         grunt dist
     else
+        grunt init
         grunt build
         grunt assets-dist
     fi
