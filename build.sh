@@ -36,7 +36,7 @@ for r in $repos; do
     npm install
     
     if [ $r == "wet-boew" ]; then
-        grunt
+        grunt dist
     else
         grunt build
         grunt assets-dist
