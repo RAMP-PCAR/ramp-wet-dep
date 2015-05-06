@@ -57,7 +57,7 @@ for r in $repos; do
     rm -f $ramp_folder/$wet_v/$r.zip
     
     # zipping 
-    zip -r $ramp_folder/$wet/$r.zip $r
+    zip -r $ramp_folder/$wet_v/$r.zip $r
     ls
     
     # remove original wet repo 
