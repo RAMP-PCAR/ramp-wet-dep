@@ -61,8 +61,8 @@ for r in $repos; do
     fi
     
     # remove garbage
-    rm -rf node_modules
-    rm -rf lib
+    ##rm -rf node_modules
+    ##rm -rf lib
     rm -rf .git
     rm bower.json
     rm package.json
@@ -75,7 +75,7 @@ for r in $repos; do
     rm -f $ramp_folder/$wet_v/$r.zip
     
     # zipping 
-    zip -r $ramp_folder/$wet_v/$r.zip $r
+    zip -r $ramp_folder/$wet_v/$r.zip $r -x "node_modules/*" -x "lib/*"
     ls
     
     # remove original wet repo 
