@@ -38,6 +38,8 @@ for r in $repos; do
     git checkout $wet_v
     npm install
     
+    echo $r
+    
     if [ "$r" == "wet-boew" ]; then
         #grunt init
         #grunt
@@ -58,15 +60,17 @@ for r in $repos; do
         
         # this avoids building all the demo pages
         grunt build
-        grunt assets-dist
-        grunt assemble:ajax
+        grunt assets-dist #copy wet core assets
+        grunt assemble:ajax #generate canada.ca mega menu
+        grunt htmlcompressor #minify it
+		grunt htmllint #lint it
     else
         # link prebuild wet-boew core
         bower link wet-boew
         
         # this avoids building all the demo pages
         grunt build
-        grunt assets-dist
+        grunt assets-dist #copy wet core assets
     fi
     
     # remove garbage
