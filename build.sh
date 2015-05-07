@@ -21,6 +21,7 @@ repos="wet-boew theme-gcwu-fegc theme-gc-intranet GCWeb"
 #repos="wet-boew"
 #repos="theme-gcwu-fegc"
 #repos="theme-gc-intranet GCWeb"
+#repos="GCWeb"
 
 ramp_dep="https://${GH_TOKEN}@github.com/RAMP-PCAR/ramp-wet-dep"
 ramp_folder="ramp_dep"
@@ -51,6 +52,14 @@ for r in $repos; do
         
         # create a symlink to wet-boew core 
         bower link
+    elif [ "$r" == "GCWeb" ]; then
+        # link prebuild wet-boew core
+        bower link wet-boew
+        
+        # this avoids building all the demo pages
+        grunt build
+        grunt assets-dist
+        grunt assemble:ajax
     else
         # link prebuild wet-boew core
         bower link wet-boew
