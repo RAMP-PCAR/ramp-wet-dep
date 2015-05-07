@@ -4,7 +4,7 @@
 set -e
 
 # only proceed script when started not by pull request (PR)
-if [ $TRAVIS_PULL_REQUEST == "true" ]; then
+if [ "$TRAVIS_PULL_REQUEST" == "true" ]; then
     echo "this is PR, exiting"
     exit 0
 fi
@@ -37,7 +37,7 @@ for r in $repos; do
     git checkout $wet_v
     npm install
     
-    if [ $r == "wet-boew" ]; then
+    if [ "$r" == "wet-boew" ]; then
         #grunt init
         #grunt
         #grunt dist
