@@ -1,4 +1,4 @@
-﻿#!/bin/bash
+#!/bin/sh
 
 # enable error reporting to the console, just in case
 set -e
@@ -19,6 +19,8 @@ wet_v="v4.0.5"
 wet_base="https://github.com/wet-boew/"
 repos="wet-boew theme-gcwu-fegc theme-gc-intranet GCWeb"
 #repos="wet-boew"
+#repos="theme-gcwu-fegc"
+#repos="theme-gc-intranet GCWeb"
 
 ramp_dep="https://${GH_TOKEN}@github.com/RAMP-PCAR/ramp-wet-dep"
 ramp_folder="ramp_dep"
@@ -36,10 +38,24 @@ for r in $repos; do
     npm install
     
     if [ $r == "wet-boew" ]; then
-        grunt init
-        grunt dist
+        #grunt init
+        #grunt
+        #grunt dist
+        
+        # this avoids building all the demo pages
+        grunt checkDependencies
+        grunt test
+        grunt build
+        grunt minify
+        grunt i18n_csv:assemble
+        
+        # create a symlink to wet-boew core 
+        bower link
     else
-        grunt init
+        # link prebuild wet-boew core
+        bower link wet-boew
+        
+        # this avoids building all the demo pages
         grunt build
         grunt assets-dist
     fi
@@ -63,7 +79,7 @@ for r in $repos; do
     ls
     
     # remove original wet repo 
-    rm -rf $r
+    #rm -rf $r
 done
 
 cd $ramp_folder
