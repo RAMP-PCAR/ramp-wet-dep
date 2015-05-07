@@ -75,7 +75,7 @@ for r in $repos; do
     rm -f $ramp_folder/$wet_v/$r.zip
     
     # zipping 
-    zip -r $ramp_folder/$wet_v/$r.zip $r -x "node_modules/*" -x "lib/*"
+    zip -r $ramp_folder/$wet_v/$r.zip $r -x "$r/node_modules/*" -x "$r/lib/*"
     ls
     
     # remove original wet repo 
