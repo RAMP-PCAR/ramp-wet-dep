@@ -62,6 +62,7 @@ for r in $repos; do
         grunt build
         grunt assets-dist #copy wet core assets
         grunt assemble:ajax #generate canada.ca mega menu
+        grunt assemble:ajax_min #generate minified canada.ca mega menu
         grunt htmlcompressor #minify it
 		grunt htmllint #lint it
     else
