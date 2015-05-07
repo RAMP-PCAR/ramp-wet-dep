@@ -64,8 +64,8 @@ for r in $repos; do
     ##rm -rf node_modules
     ##rm -rf lib
     rm -rf .git
-    rm bower.json
-    rm package.json
+    #rm bower.json
+    #rm package.json
     
     # making folder to store archive in
     cd ..
@@ -75,7 +75,7 @@ for r in $repos; do
     rm -f $ramp_folder/$wet_v/$r.zip
     
     # zipping 
-    zip -r $ramp_folder/$wet_v/$r.zip $r -x "$r/node_modules/*" -x "$r/lib/*"
+    zip -r $ramp_folder/$wet_v/$r.zip $r -x "$r/node_modules/*" -x "$r/lib/*" "$r/bower.json" -x "$r/package.json"
     ls
     
     # remove original wet repo 
