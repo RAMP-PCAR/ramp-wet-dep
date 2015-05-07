@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # enable error reporting to the console, just in case
 set -e
