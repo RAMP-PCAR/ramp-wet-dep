@@ -64,7 +64,7 @@ for r in $repos; do
         grunt assemble:ajax #generate canada.ca mega menu
         grunt assemble:ajax_min #generate minified canada.ca mega menu
         grunt htmlmin #minify it
-		grunt htmllint #lint it
+		# grunt htmllint #lint it
     else
         # link prebuild wet-boew core
         bower link wet-boew
