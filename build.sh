@@ -36,15 +36,22 @@ for r in $repos; do
     # build wet
 	cd $r
     git checkout $wet_v
+ 
+    # update modernizr dependency version
+    if [ "$r" == "wet-boew" ]; then
+        sed -i 's/"grunt-modernizr": "~0.5.2",/"grunt-modernizr": "~0.6.0",/g' package.json
+    fi
+
     npm install
-    
+
     echo $r
-    
+   
+    # do some stuff if it's core wet repo
     if [ "$r" == "wet-boew" ]; then
         #grunt init
         #grunt
         #grunt dist
-        
+  
         # this avoids building all the demo pages
         grunt checkDependencies
         grunt test
