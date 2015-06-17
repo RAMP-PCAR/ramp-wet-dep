@@ -37,9 +37,9 @@ for r in $repos; do
 	cd $r
     git checkout $wet_v
  
-    # update modernizr dependency version
+    # update magnific-popup dependency version
     if [ "$r" == "wet-boew" ]; then
-        sed -i 's/"grunt-modernizr": "~0.5.2",/"grunt-modernizr": "~0.6.0",/g' package.json
+        sed -i 's/"magnific-popup": "1.0.0",/"magnific-popup": "0.9.9",/g' bower.json        
     fi
 
     npm install
